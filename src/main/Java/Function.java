@@ -17,9 +17,12 @@ public class Function {
 
     }
 
-   public void readFile (String filePath, int numberOfStrings) {
-        this.filePath = filePath;
-        this.numberOfStrings = numberOfStrings;
+  public void readFile () {
+
+
+      this.filePath = ConsoleMenu.getPath();
+      this.numberOfStrings = ConsoleMenu.getNumber();
+
 
     }
 
@@ -35,11 +38,11 @@ public class Function {
 
     }
 
-   public String returnPathToInitialFile () {
+   /*public String returnPathToInitialFile () {
 
         return ;
 
-    }
+    }*/
 
 //getters - setters
     public String getFilePath() {

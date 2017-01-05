@@ -42,13 +42,13 @@ public class ConsoleMenu {
 
         switch (select) {
             case 1:
-              Scanner in1 = new Scanner(System.in);
-              this.number = in1.nextInt();
+                System.out.println("Enter number of strings");
+                Scanner in1 = new Scanner(System.in);
+                this.number = in1.nextInt();
               break;
 
             case 2:
-              this.number = 10;
-
+                this.number = 10;
         }
     }
 
