@@ -1,17 +1,25 @@
+import javafx.scene.shape.Path;
+
+import java.util.Scanner;
+
 public class Function {
 
     private String filePath;
     private int numberOfStrings;
 
-    public void readFile (String filePath, int numberOfStrings) {
-        this.filePath = filePath;
-        this.numberOfStrings = numberOfStrings;
+    public void getParameters () {
+
+        ConsoleMenu menu = new ConsoleMenu ();
+        menu.consoleMenu();
+
+        this.filePath = ConsoleMenu.getPath();
+        this.numberOfStrings = ConsoleMenu.getNumber();
 
     }
 
-    public void readFile (String filePath) {
+   public void readFile (String filePath, int numberOfStrings) {
         this.filePath = filePath;
-        this.numberOfStrings = 10;
+        this.numberOfStrings = numberOfStrings;
 
     }
 
@@ -27,17 +35,26 @@ public class Function {
 
     }
 
-    public String returnPathToInitialFile () {
+   public String returnPathToInitialFile () {
 
         return ;
 
     }
 
+//getters - setters
+    public String getFilePath() {
+        return filePath;
+    }
 
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 
+    public int getNumberOfStrings() {
+        return numberOfStrings;
+    }
 
-
-
-
-
+    public void setNumberOfStrings(int numberOfStrings) {
+        this.numberOfStrings = numberOfStrings;
+    }
 }
