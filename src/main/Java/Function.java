@@ -1,4 +1,6 @@
-import javafx.scene.shape.Path;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import java.util.Scanner;
 
@@ -8,23 +10,28 @@ public class Function {
     private int numberOfStrings;
 
     public void getParameters () {
-
-        ConsoleMenu menu = new ConsoleMenu ();
+        ConsoleMenu menu = new ConsoleMenu();
         menu.consoleMenu();
+    }
+
+    public void readFile() throws IOException {
 
         this.filePath = ConsoleMenu.getPath();
-        this.numberOfStrings = ConsoleMenu.getNumber();
 
+        FileInputStream inFile = new FileInputStream(filePath); //Use next filepath for tests - D:/all_pairs.txt
+        byte[] str = new byte[inFile.available()];
+        inFile.read(str, 0, inFile.available());
+        String text = new String(str);
+
+        System.out.println("File's content"); //Delete after testing
+
+        for (int i = 0; i < str.length; i++) {
+
+            System.out.print((char) str[i]);
+        }
     }
 
-  public void readFile () {
 
-
-      this.filePath = ConsoleMenu.getPath();
-      this.numberOfStrings = ConsoleMenu.getNumber();
-
-
-    }
 
     public void cutStringsFromFile () {
 
@@ -60,4 +67,8 @@ public class Function {
     public void setNumberOfStrings(int numberOfStrings) {
         this.numberOfStrings = numberOfStrings;
     }
+
+
+
+
 }
