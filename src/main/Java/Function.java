@@ -1,8 +1,5 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
 
 public class Function {
 
@@ -14,39 +11,50 @@ public class Function {
         menu.consoleMenu();
     }
 
-    public void readFile() throws IOException {
+    public void fileOperations() throws IOException {
+
+        //read file
 
         this.filePath = ConsoleMenu.getPath();
 
-        FileInputStream inFile = new FileInputStream(filePath); //Use next filepath for tests - D:/all_pairs.txt
-        byte[] str = new byte[inFile.available()];
-        inFile.read(str, 0, inFile.available());
+        ArrayList<String> strings = new ArrayList<String>();
+            try {
+                BufferedReader in = new BufferedReader(new FileReader(filePath)); // - D:/all_pairs.txt
+                String s;
+                while ((s = in.readLine()) != null) {
+                    strings.add(s);
+                    System.out.println(s);
+                }
+                in.close();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
 
-        System.out.println("File's content"); //Delete after testing
+        System.out.println("-----------");//!!!!!!!delete after tests
 
-        for (int i = 0; i < str.length; i++) {
+        //generate random numbers + write cut strings to file
 
-            System.out.print((char) str[i]);
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("D:/all_pairs_NEW.txt"));
+
+            this.numberOfStrings = ConsoleMenu.getNumber();
+
+            for (int i = 0; i < numberOfStrings; i++) {
+                int randomNumber = (int) (Math.random() * 10); //need to add cases when random numbers are equal!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                System.out.println(strings.get(randomNumber));//!!!!!!!delete after tests
+                bw.write(strings.get(randomNumber) + "\r\n");
+            }
+            bw.close();
         }
-    }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
 
-    public void cutStringsFromFile () {
 
-    }
 
-    public void writeCutStringsInResultFile () {
 
-    }
-
-    public void saveInitialFileWithoutCutStrings () {
 
     }
-
-   /*public String returnPathToInitialFile () {
-
-        return ;
-
-    }*/
 
 //getters - setters
     public String getFilePath() {
@@ -64,7 +72,6 @@ public class Function {
     public void setNumberOfStrings(int numberOfStrings) {
         this.numberOfStrings = numberOfStrings;
     }
-
 
 
 

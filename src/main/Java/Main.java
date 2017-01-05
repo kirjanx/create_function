@@ -8,7 +8,7 @@ public class Main {
 
         function.getParameters();
 
-        function.readFile();
+        function.fileOperations();
 
 
 
