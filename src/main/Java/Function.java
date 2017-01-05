@@ -21,7 +21,6 @@ public class Function {
         FileInputStream inFile = new FileInputStream(filePath); //Use next filepath for tests - D:/all_pairs.txt
         byte[] str = new byte[inFile.available()];
         inFile.read(str, 0, inFile.available());
-        String text = new String(str);
 
         System.out.println("File's content"); //Delete after testing
 
@@ -30,8 +29,6 @@ public class Function {
             System.out.print((char) str[i]);
         }
     }
-
-
 
     public void cutStringsFromFile () {
 
