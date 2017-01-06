@@ -6,15 +6,15 @@ public class Main {
 
 
         Function function = new Function();
+        NewFileTitle title = new NewFileTitle();
 
         function.getParameters();
+
+        title.newFileName();
 
         function.fileOperations();
 
 
-
-        NewFileTitle title = new NewFileTitle();
-        title.newFileName();
 
 
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Function {
 
     private String filePath;
+    private String newFilePath;
     private int numberOfStrings;
 
     public void getParameters () {
@@ -34,8 +35,11 @@ public class Function {
 
         //generate random numbers + write cut strings to file
 
+        this.newFilePath = NewFileTitle.getNewFilePath1();////generate file name in separate class
+
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("D:/all_pairs_NEW.txt"));////generate file name in separate class
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(newFilePath));
 
             this.numberOfStrings = ConsoleMenu.getNumber();
 
@@ -52,11 +56,10 @@ public class Function {
 
 
 
-
-
     }
 
-//getters - setters
+
+    //getters - setters
     public String getFilePath() {
         return filePath;
     }
@@ -74,5 +77,11 @@ public class Function {
     }
 
 
+    public String getNewFilePath() {
+        return newFilePath;
+    }
 
+    public void setNewFilePath(String newFilePath) {
+        this.newFilePath = newFilePath;
+    }
 }

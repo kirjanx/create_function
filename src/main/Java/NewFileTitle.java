@@ -1,23 +1,26 @@
 public class NewFileTitle {
 
     private String file;
-    private String path;
-    private String title;
-    private String extension;
+    private String path1;
+    private String title1;
+    private String extension1;
+    private static String NewFilePath1;
 
     public void newFileName () {
         this.file = ConsoleMenu.getPath();
         String parts[] = file.split("[/.]");
 
-        this.path = parts[0];
-        this.title = parts[1];
-        this.extension = parts[2];
+        this.path1 = parts[0];
+        this.title1 = parts[1];
+        this.extension1 = parts[2];
 
         //delete after tests
-        System.out.println("path = " + path);
-        System.out.println("title = " + title);
-        System.out.println("ext = " + extension);
+        System.out.println("path = " + path1);
+        System.out.println("title = " + title1);
+        System.out.println("ext = " + extension1);
 
+        this.NewFilePath1 = path1 + "/" + title1 + "_res." + extension1;
+        System.out.println("fullnewpath = " + NewFilePath1);        //delete after tests
     }
 
 
@@ -25,89 +28,41 @@ public class NewFileTitle {
         return file;
     }
 
-    public void setFilePath(String file) {
+    public void setFile(String file) {
         this.file = file;
     }
 
-    public String getPath() {
-        return path;
+    public String getPath1() {
+        return path1;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPath1(String Path1) {
+        this.path1 = path1;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitle1() {
+        return title1;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle1(String Title1) {
+        this.title1 = title1;
     }
 
-    public String getExtension() {
-        return extension;
+    public String getExtension1() {
+        return extension1;
     }
 
-    public void setExtension(String extension) {
-        this.extension = extension;
+    public void setExtension1(String Extension1) {
+        this.extension1 = extension1;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-   /* private String fullPath;
-    private char extensionSeparator;
-    private char pathSeparator;
-
-    public NewFileTitle (String str, char sep, char ext) {
-        /*this.fullPath = "example";
-        this.pathSeparator = '.';
-        this.extensionSeparator = '/';
-        //////
-        fullPath = str;
-        pathSeparator = sep;
-        extensionSeparator = ext;///////////
+    public static String getNewFilePath1() {
+        return NewFilePath1;
     }
 
-    public String extension () {
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        return fullPath.substring(dot + 1);
-    }
-
-    //get name without extension
-    public String filename () {
-        int dot = fullPath.lastIndexOf(extensionSeparator);
-        int sep = fullPath.lastIndexOf(pathSeparator);
-        return fullPath.substring(0, sep);
-    }
-
-    ///!!!!!!!!!!!!!!!!!!!!!
-    public void path () {
-
-        System.out.println("Extension = " +myHomePage0extension());
+    public void setNewFilePath1(String NewFilePath1) {
+        this.NewFilePath1 = NewFilePath1;
     }
 
 
-    public void setExtensionSeparator(char extensionSeparator) {
-        this.extensionSeparator = extensionSeparator;
-    }
-
-    public void setPathSeparator(char pathSeparator) {
-        this.pathSeparator = pathSeparator;
-    }
-
-    public void setFullPath(String fullPath) {
-        this.fullPath = fullPath;
-    }
-    */
 }
