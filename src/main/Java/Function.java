@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Function {
 
@@ -31,18 +32,20 @@ public class Function {
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-
         System.out.println("-----------");//!!!!!!!delete after tests
 
-        //generate random numbers + write cut strings to file
+        //generate random numbers + write cut strings to a NEW file
 
-        this.newFilePath = NewFileTitle.getNewFilePath1();////generate file name in separate class
 
+        //working with bugs
+
+        newFilePath = NewFileTitle.getNewFilePath1();
         try {
-
             BufferedWriter bw = new BufferedWriter(new FileWriter(newFilePath));
 
             this.numberOfStrings = ConsoleMenu.getNumber();
+
+            //random
 
             for (int i = 0; i < numberOfStrings; i++) {
                 this.rand = (int) (Math.random() * 10); //need to add cases when random numbers are equal!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -55,8 +58,11 @@ public class Function {
             System.out.println(ex.getMessage());
         }
 
+
         //rewrite initial file without selected strings
 
+
+        /////////////////////need to correct! not working with RANDOM
         try {
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
@@ -71,7 +77,6 @@ public class Function {
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
-
 
     }
 
