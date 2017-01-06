@@ -35,7 +35,7 @@ public class Function {
         //generate random numbers + write cut strings to file
 
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("D:/all_pairs_NEW.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("D:/all_pairs_NEW.txt"));////generate file name in separate class
 
             this.numberOfStrings = ConsoleMenu.getNumber();
 
