@@ -7,6 +7,7 @@ public class NewFileTitle {
     private static String NewFilePath1;
 
     public void newFileName () {
+
         this.file = ConsoleMenu.getPath();
         String parts[] = file.split("[/.]");
 
@@ -21,6 +22,10 @@ public class NewFileTitle {
 
         this.NewFilePath1 = path1 + "/" + title1 + "_res." + extension1;
         System.out.println("fullnewpath = " + NewFilePath1);        //delete after tests
+    }
+
+    public void resultFilePath () {
+        System.out.println("Result file path:" + NewFilePath1);
     }
 
 
@@ -63,6 +68,5 @@ public class NewFileTitle {
     public void setNewFilePath1(String NewFilePath1) {
         this.NewFilePath1 = NewFilePath1;
     }
-
 
 }

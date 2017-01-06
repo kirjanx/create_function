@@ -6,6 +6,7 @@ public class Function {
     private String filePath;
     private String newFilePath;
     private int numberOfStrings;
+    private int rand;
 
     public void getParameters () {
         ConsoleMenu menu = new ConsoleMenu();
@@ -44,9 +45,9 @@ public class Function {
             this.numberOfStrings = ConsoleMenu.getNumber();
 
             for (int i = 0; i < numberOfStrings; i++) {
-                int randomNumber = (int) (Math.random() * 10); //need to add cases when random numbers are equal!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                System.out.println(strings.get(randomNumber));//!!!!!!!delete after tests
-                bw.write(strings.get(randomNumber) + "\r\n");
+                this.rand = (int) (Math.random() * 10); //need to add cases when random numbers are equal!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                System.out.println(strings.get(rand));//!!!!!!!delete after tests
+                bw.write(strings.get(rand) + "\r\n");
             }
             bw.close();
         }
@@ -54,6 +55,22 @@ public class Function {
             System.out.println(ex.getMessage());
         }
 
+        //rewrite initial file without selected strings
+
+        try {
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+
+            for (int i = 0; i < (10 - numberOfStrings); i++) {
+                if (i != rand) {
+                    bw.write(strings.get(i) + "\r\n");
+                }
+            }
+            bw.close();
+        }
+        catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
 
 
     }
