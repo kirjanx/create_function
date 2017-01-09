@@ -13,25 +13,32 @@ public class Function {
         menu.consoleMenu();
     }
 
-    public void fileOperations() throws IOException {
+    public ArrayList<String> createArray(String filePath) {
+
+        ArrayList<String> strings = new ArrayList<String>();
 
         //read file
 
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(filePath)); // - D:/all_pairs.txt
+            String s;
+            while ((s = in.readLine()) != null) {
+                strings.add(s);
+            }
+            in.close();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return strings;
+    }
+
+    public void fileOperations() throws IOException {
+
         this.filePath = ConsoleMenu.getPath();
 
-        ArrayList<String> strings = new ArrayList<String>();
-            try {
-                BufferedReader in = new BufferedReader(new FileReader(filePath)); // - D:/all_pairs.txt
-                String s;
-                while ((s = in.readLine()) != null) {
-                    strings.add(s);
-                }
-                in.close();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+        ArrayList<String> strings = createArray(filePath);
 
-        //generate random numbers + write cut strings to a NEW file
+        //cut random number of strings + write cut strings to a NEW file
 
         newFilePath = NewFileTitle.getNewFilePath1();
         try {
@@ -59,7 +66,7 @@ public class Function {
 
             for (int i = numberOfStrings; i < 10; i++) {
 
-                    bw.write(strings.get(i) + "\r\n");
+                bw.write(strings.get(i) + "\r\n");
             }
             bw.close();
         }
@@ -68,28 +75,4 @@ public class Function {
         }
     }
 
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
-    public int getNumberOfStrings() {
-        return numberOfStrings;
-    }
-
-    public void setNumberOfStrings(int numberOfStrings) {
-        this.numberOfStrings = numberOfStrings;
-    }
-
-
-    public String getNewFilePath() {
-        return newFilePath;
-    }
-
-    public void setNewFilePath(String newFilePath) {
-        this.newFilePath = newFilePath;
-    }
 }

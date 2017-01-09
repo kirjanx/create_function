@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class ConsoleMenu {
 
-    private static String Path;
+    private static String path;
     private static int number;
 
     public void consoleMenu () {
@@ -12,7 +12,7 @@ public class ConsoleMenu {
         System.out.println("Enter the file path* (mandatory)");
 
         Scanner str = new Scanner(System.in);
-        this.Path = str.nextLine();
+        this.path = str.nextLine();
 
         //enter number of strings
         Scanner in;
@@ -45,7 +45,7 @@ public class ConsoleMenu {
                 System.out.println("Enter number of strings");
                 Scanner in1 = new Scanner(System.in);
                 this.number = in1.nextInt();
-              break;
+                break;
 
             case 2:
                 this.number = 10;
@@ -53,18 +53,10 @@ public class ConsoleMenu {
     }
 
     public static String getPath() {
-        return Path;
-    }
-
-    public void setPath(String Path) {
-        this.Path = Path;
+        return path;
     }
 
     public static int getNumber() {
         return number;
-    }
-
-    public static void setNumber(int number) {
-        ConsoleMenu.number = number;
     }
 }
