@@ -31,7 +31,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.kirjanx.create_function.Main</mainClass>
+                            <mainClass>main.Java.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
