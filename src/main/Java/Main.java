@@ -9,11 +9,12 @@ public class Main {
 
         function.getParameters();
 
-        title.newFileName();
+        String fileName = ConsoleMenu.getPath();
+
+        title.newFileName(fileName);
 
         function.fileOperations();
 
         title.resultFilePath();
-
     }
 }

@@ -2,20 +2,18 @@ public class NewFileTitle {
 
     private String file;
     private String path1;
-    private String title1;
     private String extension1;
     private static String NewFilePath1;
 
-    public void newFileName () {
+    public void newFileName (String fileName) {
 
-        this.file = ConsoleMenu.getPath();
-        String parts[] = file.split("[/.]");
+        this.file = fileName;
+        String parts[] = file.split("[.]");
 
         this.path1 = parts[0];
-        this.title1 = parts[1];
-        this.extension1 = parts[2];
+        this.extension1 = parts[1];
 
-        this.NewFilePath1 = path1 + "/" + title1 + "_res." + extension1;
+        this.NewFilePath1 = path1 + "_res." + extension1;
     }
 
     public void resultFilePath () {
@@ -36,14 +34,6 @@ public class NewFileTitle {
 
     public void setPath1(String Path1) {
         this.path1 = path1;
-    }
-
-    public String getTitle1() {
-        return title1;
-    }
-
-    public void setTitle1(String Title1) {
-        this.title1 = title1;
     }
 
     public String getExtension1() {
