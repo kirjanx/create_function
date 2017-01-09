@@ -1,13 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class Function {
 
     private String filePath;
     private String newFilePath;
     private int numberOfStrings;
-    private int rand;
 
     public void getParameters () {
         ConsoleMenu menu = new ConsoleMenu();
@@ -26,18 +25,13 @@ public class Function {
                 String s;
                 while ((s = in.readLine()) != null) {
                     strings.add(s);
-                    System.out.println(s);
                 }
                 in.close();
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-        System.out.println("-----------");//!!!!!!!delete after tests
 
         //generate random numbers + write cut strings to a NEW file
-
-
-        //working with bugs
 
         newFilePath = NewFileTitle.getNewFilePath1();
         try {
@@ -45,12 +39,11 @@ public class Function {
 
             this.numberOfStrings = ConsoleMenu.getNumber();
 
-            //random
+            Collections.shuffle(strings);
 
             for (int i = 0; i < numberOfStrings; i++) {
-                this.rand = (int) (Math.random() * 10); //need to add cases when random numbers are equal!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                System.out.println(strings.get(rand));//!!!!!!!delete after tests
-                bw.write(strings.get(rand) + "\r\n");
+
+                bw.write(strings.get(i) + "\r\n");
             }
             bw.close();
         }
@@ -58,30 +51,23 @@ public class Function {
             System.out.println(ex.getMessage());
         }
 
+        //write cut strings to a NEW file
 
-        //rewrite initial file without selected strings
-
-
-        /////////////////////need to correct! not working with RANDOM
         try {
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
 
-            for (int i = 0; i < (10 - numberOfStrings); i++) {
-                if (i != rand) {
+            for (int i = numberOfStrings; i < 10; i++) {
+
                     bw.write(strings.get(i) + "\r\n");
-                }
             }
             bw.close();
         }
         catch(IOException ex){
             System.out.println(ex.getMessage());
         }
-
     }
 
-
-    //getters - setters
     public String getFilePath() {
         return filePath;
     }

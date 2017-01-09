@@ -15,19 +15,12 @@ public class NewFileTitle {
         this.title1 = parts[1];
         this.extension1 = parts[2];
 
-        //delete after tests
-        System.out.println("path = " + path1);
-        System.out.println("title = " + title1);
-        System.out.println("ext = " + extension1);
-
         this.NewFilePath1 = path1 + "/" + title1 + "_res." + extension1;
-        System.out.println("fullnewpath = " + NewFilePath1);        //delete after tests
     }
 
     public void resultFilePath () {
         System.out.println("Result file path:" + NewFilePath1);
     }
-
 
     public String file() {
         return file;

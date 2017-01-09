@@ -4,7 +4,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-
         Function function = new Function();
         NewFileTitle title = new NewFileTitle();
 
@@ -14,14 +13,7 @@ public class Main {
 
         function.fileOperations();
 
-        //title.resultFilePath();
-
-
-
-
-
-
-
+        title.resultFilePath();
 
     }
 }

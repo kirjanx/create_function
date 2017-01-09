@@ -52,7 +52,6 @@ public class ConsoleMenu {
         }
     }
 
-    //getters - setters
     public static String getPath() {
         return Path;
     }
